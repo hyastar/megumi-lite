@@ -59,10 +59,6 @@ export default defineNuxtConfig({
           content: 'Future is now 🍭🍭🍭'
         },
         { 
-          name: 'keywords', 
-          content: 'Java,MySQL,算法,代码,博客,Butterfly,Hexo,Fomalhaut🥝,Fomalhaut'
-        },
-        { 
           name: 'author', 
           content: 'Fomalhaut🥝'
         },
@@ -75,7 +71,7 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'Fomalhaut🥝' },
         { property: 'og:description', content: 'Future is now 🍭🍭🍭' },
         { property: 'og:site_name', content: 'Fomalhaut🥝' },
-        { property: 'og:url', content: 'https://www.fomal.cc/' },
+        { property: 'og:url', content: '' },
         { property: 'og:locale', content: 'zh_CN' },
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -109,7 +105,11 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://www.fomal.cc/',
       analyticsProvider: process.env.NUXT_PUBLIC_ANALYTICS_PROVIDER || 'umami',
-      analyticsShareUrl: process.env.NUXT_PUBLIC_ANALYTICS_SHARE_URL || ''
+      analyticsShareUrl: process.env.NUXT_PUBLIC_ANALYTICS_SHARE_URL || '',
+      laId: process.env.NUXT_PUBLIC_51LA_ID || '',
+      laCk: process.env.NUXT_PUBLIC_51LA_CK || '',
+      umamiId: process.env.NUXT_PUBLIC_UMAMI_ID || '',
+      umamiHost: process.env.NUXT_PUBLIC_UMAMI_HOST || ''
     }
   },
 

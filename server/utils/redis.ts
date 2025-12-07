@@ -6,11 +6,13 @@ function createRedisClient() {
   const config = useRuntimeConfig()
   const { redisHost, redisPort, redisPassword } = config
   const port = Number(redisPort) || 6379
-  console.log(`[redis] init host=${redisHost} port=${port}`)
+  const isUpstash = !!redisHost && redisHost.toLowerCase().includes('upstash')
+  console.log(`[redis] init host=${redisHost} port=${port} tls=${isUpstash ? 'on' : 'off'}`)
   const options = {
     host: redisHost,
     port,
     password: redisPassword || undefined,
+    tls: isUpstash ? {} : undefined,
     lazyConnect: true,
     connectTimeout: 5000,
     enableOfflineQueue: false,
