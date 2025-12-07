@@ -40,6 +40,13 @@
           referrerpolicy="no-referrer"
           @load="handleIframeLoad"
         ></iframe>
+
+        <!-- 51.la 数据挂件 -->
+        <div
+          v-if="is51LaWidgetVisible"
+          ref="laWidgetRef"
+          class="la-widget-container"
+        ></div>
       </div>
     </div>
 
@@ -103,10 +110,16 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
+
 // 获取运行时配置
 const config = useRuntimeConfig()
 const analyticsProvider = computed(() => config.public.analyticsProvider || 'umami')
 const analyticsShareUrl = computed(() => config.public.analyticsShareUrl || '')
+const is51LaWidgetVisible = computed(
+  () => analyticsProvider.value === '51la' && !!config.public.laId
+)
+const laWidgetRef = ref<HTMLElement | null>(null)
 
 // iframe 加载状态
 const iframeLoading = ref(true)
@@ -209,6 +222,16 @@ onMounted(() => {
   } else {
     iframeLoading.value = false
   }
+
+  // 51.la 挂件
+  if (is51LaWidgetVisible.value && laWidgetRef.value) {
+    const script = document.createElement('script')
+    script.id = 'LA-DATA-WIDGET'
+    script.crossOrigin = 'anonymous'
+    script.charset = 'UTF-8'
+    script.src = `https://v6-widget.51.la/v6/${config.public.laId}/quote.js?theme=0&col=true&f=12&badge=text&text=center`
+    laWidgetRef.value.appendChild(script)
+  }
 })
 
 // SEO
@@ -263,6 +286,17 @@ useHead({
   border: none;
   border-radius: var(--radius-md);
   background: transparent;
+}
+
+.la-widget-container {
+  margin-top: 20px;
+  padding: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Umami 特定样式 */
