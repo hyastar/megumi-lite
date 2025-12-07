@@ -1,0 +1,1091 @@
+# ============================================
+# 通用 .gitignore 配置
+# 适用于多种开发场景的综合配置
+# ============================================
+
+# ====================
+# 核心策略：忽略所有，显式包含需要的文件
+# ====================
+*
+
+# ====================
+# Git 基础配置文件
+# ====================
+!.gitignore
+!.gitattributes
+!.gitkeep
+!.gitmodules
+!.github/
+!.gitlab/
+!.gitlab-ci.yml
+!.gitea/
+
+# Git Hooks 相关
+!.husky/
+!.githooks/
+!.pre-commit-config.yaml
+!.commitlintrc
+!.commitlintrc.*
+!.czrc
+!.cz-config.js
+!.gitmessage
+
+# ====================
+# CI/CD 配置
+# ====================
+!.github/workflows/
+!.github/ISSUE_TEMPLATE/
+!.github/PULL_REQUEST_TEMPLATE/
+!.gitlab-ci.yml
+!.circleci/
+!.travis.yml
+!Jenkinsfile
+!azure-pipelines.yml
+!bitbucket-pipelines.yml
+!.drone.yml
+!.wercker.yml
+
+# ====================
+# 编程语言源代码
+# ====================
+
+# C/C++
+!*.c
+!*.cpp
+!*.cc
+!*.cxx
+!*.h
+!*.hpp
+!*.hh
+!*.hxx
+!*.inl
+
+# Java/Kotlin/Groovy/Scala
+!*.java
+!*.kt
+!*.kts
+!*.groovy
+!*.scala
+
+# Python
+!*.py
+
+# Go
+!*.go
+
+# Rust
+!*.rs
+
+# Ruby
+!*.rb
+!*.rake
+
+# PHP
+!*.php
+
+# R
+!*.r
+!*.R
+
+# Dart
+!*.dart
+
+# Swift
+!*.swift
+
+# Shell/Bash
+!*.sh
+!*.bash
+!*.zsh
+!*.fish
+
+# Makefile
+!Makefile
+!makefile
+!*.mk
+
+# Assembly
+!*.asm
+!*.s
+!*.S
+
+# Fortran
+!*.f
+!*.f90
+!*.f95
+
+# Lua
+!*.lua
+
+# Perl
+!*.pl
+!*.pm
+
+# Haskell
+!*.hs
+
+# Elixir
+!*.ex
+!*.exs
+
+# Clojure
+!*.clj
+!*.cljs
+
+# Erlang
+!*.erl
+
+# Julia
+!*.jl
+
+# ====================
+# 数据库和查询语言
+# ====================
+!*.sql
+!*.pgsql
+!*.tsql
+!*.plsql
+!*.mysql
+!*.mssql
+!*.mongodb
+!*.graphql
+!*.prisma
+!*.hql
+!*.cypher
+
+# ====================
+# Python 项目配置
+# ====================
+!*.ipynb
+!requirements.txt
+!requirements/*.txt
+!requirements-*.txt
+!constraints.txt
+!Pipfile
+!Pipfile.lock
+!pyproject.toml
+!poetry.lock
+!setup.py
+!setup.cfg
+!tox.ini
+!pytest.ini
+!mypy.ini
+!.coveragerc
+!.pylintrc
+!.flake8
+!.bandit
+!.isort.cfg
+!pdm.lock
+!hatch.toml
+
+# ====================
+# 前端开发文件
+# ====================
+
+# HTML/模板引擎
+!*.html
+!*.htm
+!*.xhtml
+!*.ejs
+!*.hbs
+!*.pug
+!*.jade
+!*.twig
+!*.haml
+!*.liquid
+!*.njk
+!*.mustache
+!*.handlebars
+!*.razor
+!*.cshtml
+!*.vhtml
+
+# 样式表
+!*.css
+!*.scss
+!*.sass
+!*.less
+!*.styl
+!*.stylus
+!*.postcss
+!*.module.css
+!*.module.scss
+!*.module.sass
+!*.module.less
+
+# JavaScript/TypeScript
+!*.js
+!*.mjs
+!*.cjs
+!*.jsx
+!*.ts
+!*.tsx
+!*.vue
+!*.svelte
+!*.astro
+!*.mts
+!*.cts
+!*.d.ts
+!*.js.map
+!*.ts.map
+
+# WebAssembly
+!*.wasm
+!*.wat
+
+# --- 新增部分 ---
+
+# 静态资源文件 (图片、字体等)
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
+!*.webp
+!*.avif
+!*.svg
+!*.ico
+!*.bmp
+!*.woff
+!*.woff2
+!*.ttf
+!*.otf
+!*.eot
+
+# 视频与音频 (仅当它们是小型、必要的源文件时)
+!*.mp4
+!*.webm
+!*.ogg
+!*.mp3
+!*.wav
+
+# Web 配置文件
+!robots.txt
+!sitemap.xml
+!manifest.json
+!manifest.webmanifest
+!browserconfig.xml
+
+# ====================
+# 数据交换和配置格式
+# ====================
+!*.json
+!*.jsonc
+!*.json5
+!*.xml
+!*.yaml
+!*.yml
+!*.toml
+!*.ini
+!*.env.example
+!*.env.sample
+!*.env.template
+!*.properties
+!*.conf
+!*.config
+!*.cfg
+
+# ====================
+# 文档文件
+# ====================
+!*.md
+!*.mdx
+!*.txt
+!*.rst
+!*.asciidoc
+!*.adoc
+!*.tex
+!*.rtf
+!LICENSE*
+!LICENCE*
+!README*
+!CHANGELOG*
+!HISTORY*
+!CONTRIBUTING*
+!AUTHORS*
+!CONTRIBUTORS*
+!CODE_OF_CONDUCT*
+!SECURITY*
+!PATENTS*
+!VERSION*
+!NOTICE*
+
+# ====================
+# 多媒体和资源文件
+# ====================
+!*.svg
+!*.ico
+!*.icns
+!*.webmanifest
+!robots.txt
+!sitemap.xml
+!browserconfig.xml
+!crossdomain.xml
+!humans.txt
+
+# ====================
+# STM32/嵌入式开发
+# ====================
+
+# STM32CubeMX
+!*.ioc
+
+# Keil MDK-ARM
+!*.uvprojx
+!*.uvoptx
+
+# 启动和系统文件
+!startup_*.s
+!startup_*.S
+!system_*.c
+!system_*.h
+
+# 链接脚本
+!*.ld
+!*.lds
+!*.sct
+!*.icf
+!*.ld.S
+
+# 嵌入式配置
+!FreeRTOSConfig.h
+!*_hal_conf.h
+!*_ll_conf.h
+!*_it.h
+!*_it.c
+!main.h
+!main.c
+
+# ARM CMSIS
+!*.cmsis
+
+# OpenOCD
+!*.cfg
+
+# ====================
+# 包管理器配置
+# ====================
+
+# Node.js/JavaScript
+!package.json
+!package-lock.json
+!yarn.lock
+!pnpm-lock.yaml
+!bun.lockb
+!.npmrc
+!.yarnrc
+!.yarnrc.yml
+!.nvmrc
+!lerna.json
+!turbo.json
+!nx.json
+!rush.json
+!pnpm-workspace.yaml
+
+# PHP
+!composer.json
+!composer.lock
+
+# Ruby
+!Gemfile
+!Gemfile.lock
+!.ruby-version
+!.ruby-gemset
+
+# Rust
+!Cargo.toml
+!Cargo.lock
+
+# Go
+!go.mod
+!go.sum
+
+# Java/Maven/Gradle
+!pom.xml
+!build.gradle
+!build.gradle.kts
+!settings.gradle
+!settings.gradle.kts
+!gradle.properties
+!gradlew
+!gradlew.bat
+
+# .NET/NuGet
+!*.csproj
+!*.vbproj
+!*.fsproj
+!*.sln
+!packages.config
+!*.nuspec
+
+# Dart/Flutter
+!pubspec.yaml
+!pubspec.lock
+
+# Swift/CocoaPods
+!Podfile
+!Podfile.lock
+!*.podspec
+!Package.swift
+
+# ====================
+# TypeScript 配置
+# ====================
+!tsconfig.json
+!tsconfig.*.json
+!tslint.json
+
+# ====================
+# 代码质量和格式化
+# ====================
+!.eslintrc*
+!.prettierrc*
+!.prettierignore
+!.stylelintrc*
+!.editorconfig
+!.browserslistrc
+!.markdownlint*
+!.shellcheckrc
+!.yamllint
+!.hadolint.yaml
+!sonar-project.properties
+!.codeclimate.yml
+!.coderabbit.yaml
+
+# ====================
+# 构建工具配置
+# ====================
+
+# 前端构建工具
+!webpack.config.*
+!rollup.config.*
+!vite.config.*
+!babel.config.*
+!.babelrc*
+!next.config.*
+!nuxt.config.*
+!svelte.config.*
+!angular.json
+!vue.config.*
+!tailwind.config.*
+!postcss.config.*
+!gulpfile.*
+!gruntfile.*
+!remix.config.*
+!astro.config.*
+!rspack.config.*
+
+# 测试框架
+!jest.config.*
+!vitest.config.*
+!karma.conf.*
+!protractor.conf.*
+!playwright.config.*
+!cypress.config.*
+!wdio.conf.*
+
+# 其他工具
+!nginx.conf
+!.htaccess
+!pm2.config.*
+!ecosystem.config.*
+!nodemon.json
+!vercel.json
+!netlify.toml
+!render.yaml
+
+# CMake
+!CMakeLists.txt
+!*.cmake
+
+# ====================
+# 容器和部署配置
+# ====================
+!Dockerfile*
+!.dockerignore
+!docker-compose*.yml
+!docker-compose*.yaml
+!.devcontainer/
+!devcontainer.json
+
+# Kubernetes
+!kubernetes/*.yml
+!kubernetes/*.yaml
+!k8s/*.yml
+!k8s/*.yaml
+
+# Helm
+!helm/*.yaml
+!.helm/
+!Chart.yaml
+!values.yaml
+
+# Terraform
+!*.tf
+!*.tfvars
+!.terraform.lock.hcl
+
+# 其他部署工具
+!*.nomad
+!serverless.yml
+!cloudbuild.yaml
+!fly.toml
+!now.json
+!railway.json
+!Procfile
+!app.yaml
+!app.yml
+
+# Ansible
+!*.ansible
+!playbook.yml
+!inventory.ini
+
+# Vagrant
+!Vagrantfile
+
+# ====================
+# IDE 配置（可选保留）
+# ====================
+!.vscode/
+!.idea/runConfigurations/
+!.idea/dictionaries/
+!.idea/codeStyles/
+
+# ====================
+# 保留目录结构
+# ====================
+!*/
+
+# ============================================
+# 忽略规则 - 编译输出和临时文件
+# ============================================
+
+# STM32/Keil/MDK-ARM 编译输出
+Objects/
+RTE/
+Listings/
+DebugConfig/
+EventRecorderStub.scvd
+*.axf
+*.hex
+*.bin
+*.elf
+*.map
+*.lst
+*.o
+*.obj
+*.d
+*.crf
+*.htm
+*.dep
+*.i
+*.build_log.htm
+*.scvd
+*.uvguix.*
+*.bak_*
+*.__i
+*.__ia
+
+# IAR Embedded Workbench
+*.pbi
+*.pbd
+*.pbw
+*.dni
+*.wsdt
+*.browse
+*.sim
+Debug/
+Release/
+
+# STM32CubeMX 备份
+*.ioc.bak
+*.ioc~
+
+# ESP32-IDF
+sdkconfig.old
+
+# GCC/Make/CMake 编译输出
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.ko
+*.mod
+*.mod.c
+*.cache
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+*.ilk
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.idb
+*.pch
+*.ipch
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VisualState.xml
+.vs/
+
+# ============================================
+# 编译输出和缓存目录
+# ============================================
+dist/
+build/
+out/
+target/
+release/
+debug/
+coverage/
+.coverage/
+htmlcov/
+.nyc_output/
+.cache/
+.temp/
+tmp/
+temp/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.eslintcache
+.stylelintcache
+.prettiercache
+.parcel-cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ============================================
+# 依赖目录
+# ============================================
+node_modules/
+jspm_packages/
+bower_components/
+vendor/
+.venv/
+venv/
+env/
+.env/
+.virtualenv/
+.pnp/
+.pnp.js
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.npm/
+.pnpm-store/
+Packages/
+packages/
+lib-cov/
+
+# ============================================
+# 框架和构建输出
+# ============================================
+.next/
+.nuxt/
+.output/
+.vuepress/dist/
+.vitepress/dist/
+.vitepress/cache/
+.docusaurus/
+.serverless/
+.fusebox/
+.dynamodb/
+.webpack/
+.turbo/
+.swc/
+.astro/
+.svelte-kit/
+storybook-static/
+
+# ============================================
+# IDE 和编辑器
+# ============================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+.idea/*
+!.idea/runConfigurations/
+!.idea/dictionaries/
+!.idea/codeStyles/
+*.iml
+*.ipr
+*.iws
+
+.fleet/
+.project
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+.factorypath
+.buildpath
+.target
+.tern-project
+.texlipse
+.springBeans
+.recommenders/
+.apt_generated/
+.apt_generated_test/
+
+# Eclipse
+local.properties
+
+# NetBeans
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# Visual Studio Code
+.history/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+*.sublime-auto-save
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+auto-save-list
+tramp
+.\#*
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# ============================================
+# 操作系统
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# 日志和数据文件
+# ============================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+pids/
+*.pid
+*.seed
+*.pid.lock
+lib-cov/
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.bak
+*.backup
+*.cache
+*.temp
+*.tmp
+*.old
+*.orig
+
+# ============================================
+# 环境和密钥文件
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+*.password
+*.secret
+*.credentials
+.ssh/
+credentials.json
+token.json
+
+# ============================================
+# 云服务和部署
+# ============================================
+.vercel/
+.netlify/
+.firebase/
+.firebaserc
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+.lighthouseci/
+.gcloud/
+.aws/
+.azure/
+
+# ============================================
+# 其他工具和服务
+# ============================================
+.vagrant/
+.fusebox/
+.terraform/
+.pulumi/
+.serverless/
+.amplify/
+.sst/
+.wrangler/
+.ansible/
+.docker/
+
+# ============================================
+# Python 特定
+# ============================================
+*.py[cod]
+*$py.class
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+celerybeat-schedule
+celerybeat.pid
+*.sage.py
+.spyderproject
+.spyproject
+.ropeproject
+.mr.developer.cfg
+.pybuilder/
+instance/
+.webassets-cache
+.scrapy
+
+# ============================================
+# Java 特定
+# ============================================
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# ============================================
+# Node.js 特定
+# ============================================
+*.tsbuildinfo
+.grunt/
+.lock-wscript
+.node_repl_history
+*.tgz
+.yarn-integrity
+
+# ============================================
+# MATLAB
+# ============================================
+*.asv
+*.mex*
+*.slx.autosave
+*.slxc
+*.mlappinstall
+*.mltbx
+
+# ============================================
+# CAD
+# ============================================
+*.dwl
+*.dwl2
+*.sv$
+~$*
+*.Backup
+
+# ============================================
+# FPGA (Quartus/Vivado/Modelsim)
+# ============================================
+*.sof
+*.pof
+*.jdi
+*.rpt
+*.summary
+*.qws
+*.jou
+*.str
+*.bit
+*.dcp
+*.wlf
+*.vstf
+transcript
+vsim.wlf
+vivado*.jou
+vivado*.log
+.Xil/
+*.ip_user_files/
+*.hw/
+*.sim/
+
+# ============================================
+# Proteus / Multisim
+# ============================================
+*.DBK
+*.pdsprj.LAPTOP*
+*.pdsprj.DESKTOP*
+Backup?Of?*
+*.workspace.bak
+*.ms*bak
+
+# ============================================
+# Adobe Creative Cloud
+# ============================================
+*.psb~
+*-Recovered.psd
+*.cfa
+*.pek
+*.pkf
+*.aep.Lockfolder
+*.prproj.Lockfolder
+*.ai.lock
+*.sesx.bak
+
+# ============================================
+# 其他通用忽略
+# ============================================
+.hg/
+.svn/
+.cvs/
+CVS/
+.cvsignore
+.bzr/
+.bzrignore
+
+# 性能和分析文件
+*.prof
+*.hprof
+*.prof.html
+.vscode-test/
+.vs-test/
+
+# 文档构建
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+
+# 测试
+.phpunit.result.cache
+phpunit.xml
+.phpcs-cache
+
+# 安全扫描
+trivy-report.json
+snyk.json
+
+# 临时文件
+*.diff
+*.patch
+*.rej
+
+# MacOS 额外
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# 备份文件
+*.bk
+*.gho
+*.ori
+*.original
+*.rej
+*.sav
+*.sw?
+
+# 压缩文件（通常不应提交）
+# *.zip
+# *.tar.gz
+# *.rar
+# *.7z
+
+# 编译后的二进制文件（可根据需要解除注释）
+# *.apk
+# *.ipa
+# *.app
+
+# ============================================
+# 自定义规则
+# ============================================
+# 在下方添加项目特定的忽略规则

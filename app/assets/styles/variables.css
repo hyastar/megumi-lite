@@ -1,0 +1,315 @@
+/* ============================================
+   Megumi-Lite 全局 CSS 变量定义
+   合并自 _variables.scss, variables.scss 和 main.scss
+   ============================================ */
+
+:root {
+  /* ============================================
+     核心颜色 - Butterfly 主题
+     ============================================ */
+  --theme-color: #49b1f5; /* Butterfly Blue */
+  --primary-color: #49b1f5;
+  --primary-hover: #ff7242; /* 悬停橙 */
+  --primary-light: #6bb8f7;
+  
+  /* ============================================
+     背景色
+     ============================================ */
+  --body-bg: #f0f0f0; /* Light gray background */
+  --bg-color: #f0f0f0;
+  --card-bg: rgba(255, 255, 255, 0.9); /* 带透明度的卡片背景 */
+  --header-bg: rgba(255, 255, 255, 0.8); /* Header background with transparency */
+  
+  /* ============================================
+     黑夜模式相关变量
+     ============================================ */
+  --bg-overlay-opacity: 0; /* 背景遮罩透明度 - 亮色模式为 0 */
+  --header-bg-scrolled: rgba(255, 255, 255, 0.85); /* 滚动后的 Header 背景 */
+  --footer-bg: rgba(255, 255, 255, 0.6); /* Footer 背景 */
+  
+  /* ============================================
+     文字颜色
+     ============================================ */
+  --text-color: #4c4948;
+  --text-secondary: #8e8e8e;
+  --text-light: #a9a9a9;
+  
+  /* ============================================
+     边框颜色
+     ============================================ */
+  --border-color: #e3e8ed;
+  --border-light: #f0f0f0;
+  
+  /* ============================================
+     阴影 - Butterfly 风格
+     ============================================ */
+  --shadow-sm: 0 4px 8px 6px rgba(7, 17, 27, 0.06);
+  --shadow-md: 0 4px 12px 12px rgba(7, 17, 27, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 4px 12px 12px rgba(7, 17, 27, 0.15);
+  
+  /* ============================================
+     特效
+     ============================================ */
+  --backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+  --card-radius: 12px; /* 卡片圆角 */
+  
+  /* ============================================
+     字体
+     ============================================ */
+  --font-family: 'LXGW WenKai Screen', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-main: 'LXGW WenKai Screen', system-ui, sans-serif;
+  --font-mono: 'LXGW WenKai Mono Screen', monospace;
+  --font-size-base: 14px;
+  --font-size-sm: 12px;
+  --font-size-lg: 16px;
+  --line-height: 1.8;
+  
+  /* ============================================
+     间距
+     ============================================ */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* ============================================
+     圆角
+     ============================================ */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  /* ============================================
+     过渡动画
+     ============================================ */
+  --transition: all 0.3s ease;
+  
+  /* ============================================
+     布局
+     ============================================ */
+  --nav-height: 60px;
+  
+  /* ============================================
+     Memory 风格变量（兼容）
+     ============================================ */
+  --font-size: 14px;
+  --botui-width: 600px;
+  --font-family-primary: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  
+  /* Glass / background */
+  --front-body-color: linear-gradient(
+    to left,
+    rgba(243, 243, 243, 0.33),
+    rgba(255, 255, 255, 0.33)
+  );
+  --pic-background-cover: rgba(255, 255, 255, 0.6);
+  --container-background-color: rgba(255, 255, 255, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-blur: 10px;
+  --shadow-soft: 0 1px 22px -8px rgba(26, 26, 26, 0.6);
+  --box-shadow-color: 0 1px 35px -8px rgba(26, 26, 26, 0.15);
+  
+  /* 卡片遮罩 */
+  --pic-cover-color: linear-gradient(
+    90deg,
+    hsla(0, 0%, 98%, 0) 0%,
+    hsla(0, 0%, 98%, 0.8) 50%,
+    hsla(0, 0%, 98%, 1) 100%
+  );
+  --pic-cover-color-m: linear-gradient(
+    180deg,
+    hsla(0, 0%, 98%, 0) 0%,
+    hsla(0, 0%, 98%, 0.8) 50%,
+    hsla(0, 0%, 98%, 1) 100%
+  );
+  
+  /* Typography & accent */
+  --font-title-color: #1a1a1a;
+  --font-p-color: #666666;
+  --font-link-color: #569cfa;
+  --category-hover-color: #b1cee3;
+  --theme-gradient: linear-gradient(to right, #569cfa, #41b3ff);
+  --pic-cover-mask: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  
+  /* Palette */
+  --bg: #1a1e2d;
+  --green: #a5ea9b;
+  --pink: #ff61d8;
+  --blue: #569cfa;
+  --orange: #ffcc81;
+  --cyan: #7ed1e2;
+  --phoneBar-bg: #fff;
+  --phoneBar-font-color: #717171;
+  
+  /* Secondary color */
+  --secondary-color: #209175;
+}
+
+/* ============================================
+   暗色模式支持
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 背景色 */
+    --front-body-color: linear-gradient(to left, rgba(20, 20, 30, 0.5), rgba(30, 30, 40, 0.5));
+    --body-bg: #0f0f1a;
+    --bg-color: #0f0f1a;
+    --pic-background-cover: rgba(30, 30, 40, 0.8);
+    --container-background-color: rgba(30, 30, 40, 0.7);
+    --glass-bg: rgba(30, 30, 40, 0.7);
+    
+    /* 文字颜色 */
+    --text-color: #e8e8e8;
+    --font-title-color: #e8e8e8;
+    --font-p-color: #b0b0b0;
+    --font-link-color: #6fa8ff;
+    
+    /* 其他颜色 */
+    --box-shadow-color: 0 1px 35px -8px rgba(0, 0, 0, 0.5);
+    --category-hover-color: #2a4a6a;
+    --pic-cover-mask: linear-gradient(to top, rgba(20, 20, 30, 1) 0%, rgba(20, 20, 30, 0) 100%);
+    
+    /* 主题渐变 */
+    --theme-gradient: linear-gradient(to right, #4a7fd8, #3064b8);
+    
+    /* 卡片遮罩 */
+    --pic-cover-color: linear-gradient(
+      90deg,
+      hsla(220, 20%, 10%, 0) 0%,
+      hsla(220, 20%, 10%, 0.8) 50%,
+      hsla(220, 20%, 10%, 1) 100%
+    );
+    --pic-cover-color-m: linear-gradient(
+      180deg,
+      hsla(220, 20%, 10%, 0) 0%,
+      hsla(220, 20%, 10%, 0.8) 50%,
+      hsla(220, 20%, 10%, 1) 100%
+    );
+    
+    /* 其他变量 */
+    --phoneBar-bg: #232323;
+    --phoneBar-font-color: #fff;
+    
+  /* 卡片背景 */
+  --card-bg: rgba(30, 30, 40, 0.8);
+  
+  /* Header background */
+  --header-bg: rgba(20, 20, 30, 0.8);
+  
+  /* 黑夜模式相关变量 */
+  --bg-overlay-opacity: 0.6; /* 夜间给背景图盖一层 60% 的黑纱 */
+  --header-bg-scrolled: rgba(30, 30, 30, 0.85); /* 深色磨砂 Header */
+  --footer-bg: rgba(30, 30, 30, 0.6); /* 深色 Footer */
+  --text-secondary: #aaaaaa; /* 暗色模式下的次要文字颜色 */
+  --shadow-sm: 0 4px 8px 6px rgba(0, 0, 0, 0.3); /* 暗色模式下的阴影 */
+  }
+}
+
+[data-theme='dark'],
+.frontDark,
+html.dark {
+  /* 背景色 */
+  --front-body-color: linear-gradient(to left, rgba(20, 20, 30, 0.5), rgba(30, 30, 40, 0.5));
+  --body-bg: #0f0f1a;
+  --bg-color: #0f0f1a;
+  --pic-background-cover: rgba(30, 30, 40, 0.8);
+  --container-background-color: rgba(30, 30, 40, 0.7);
+  --glass-bg: rgba(30, 30, 40, 0.7);
+  
+  /* 文字颜色 */
+  --text-color: #eeeeee;
+  --font-title-color: #e8e8e8;
+  --font-p-color: #b0b0b0;
+  --font-link-color: #6fa8ff;
+  --text-secondary: #aaaaaa;
+  
+  /* 其他颜色 */
+  --box-shadow-color: 0 1px 35px -8px rgba(0, 0, 0, 0.5);
+  --category-hover-color: #2a4a6a;
+  --pic-cover-mask: linear-gradient(to top, rgba(20, 20, 30, 1) 0%, rgba(20, 20, 30, 0) 100%);
+  
+  /* 主题渐变 */
+  --theme-gradient: linear-gradient(to right, #4a7fd8, #3064b8);
+  
+  /* 卡片遮罩 */
+  --pic-cover-color: linear-gradient(
+    90deg,
+    hsla(220, 20%, 10%, 0) 0%,
+    hsla(220, 20%, 10%, 0.8) 50%,
+    hsla(220, 20%, 10%, 1) 100%
+  );
+  --pic-cover-color-m: linear-gradient(
+    180deg,
+    hsla(220, 20%, 10%, 0) 0%,
+    hsla(220, 20%, 10%, 0.8) 50%,
+    hsla(220, 20%, 10%, 1) 100%
+  );
+  
+  /* 其他变量 */
+  --phoneBar-bg: #232323;
+  --phoneBar-font-color: #fff;
+  
+  /* 卡片背景 */
+  --card-bg: rgba(30, 30, 40, 0.8);
+  
+  /* Header background */
+  --header-bg: rgba(20, 20, 30, 0.8);
+  
+  /* 黑夜模式相关变量 */
+  --bg-overlay-opacity: 0.6; /* 夜间给背景图盖一层 60% 的黑纱 */
+  --header-bg-scrolled: rgba(30, 30, 30, 0.85); /* 深色磨砂 Header */
+  --footer-bg: rgba(30, 30, 30, 0.6); /* 深色 Footer */
+  --shadow-sm: 0 4px 8px 6px rgba(0, 0, 0, 0.3); /* 暗色模式下的阴影 */
+}
+
+/* ============================================
+   暗色模式 - data-theme 属性支持
+   ============================================ */
+[data-theme='dark'],
+.frontDark {
+  /* 背景色 */
+  --front-body-color: linear-gradient(to left, rgba(20, 20, 30, 0.5), rgba(30, 30, 40, 0.5));
+  --body-bg: #0f0f1a;
+  --bg-color: #0f0f1a;
+  --pic-background-cover: rgba(30, 30, 40, 0.8);
+  --container-background-color: rgba(30, 30, 40, 0.7);
+  --glass-bg: rgba(30, 30, 40, 0.7);
+  
+  /* 文字颜色 */
+  --text-color: #e8e8e8;
+  --font-title-color: #e8e8e8;
+  --font-p-color: #b0b0b0;
+  --font-link-color: #6fa8ff;
+  
+  /* 其他颜色 */
+  --box-shadow-color: 0 1px 35px -8px rgba(0, 0, 0, 0.5);
+  --category-hover-color: #2a4a6a;
+  --pic-cover-mask: linear-gradient(to top, rgba(20, 20, 30, 1) 0%, rgba(20, 20, 30, 0) 100%);
+  
+  /* 主题渐变 */
+  --theme-gradient: linear-gradient(to right, #4a7fd8, #3064b8);
+  
+  /* 卡片遮罩 */
+  --pic-cover-color: linear-gradient(
+    90deg,
+    hsla(220, 20%, 10%, 0) 0%,
+    hsla(220, 20%, 10%, 0.8) 50%,
+    hsla(220, 20%, 10%, 1) 100%
+  );
+  --pic-cover-color-m: linear-gradient(
+    180deg,
+    hsla(220, 20%, 10%, 0) 0%,
+    hsla(220, 20%, 10%, 0.8) 50%,
+    hsla(220, 20%, 10%, 1) 100%
+  );
+  
+  /* 其他变量 */
+  --phoneBar-bg: #232323;
+  --phoneBar-font-color: #fff;
+  
+  /* 卡片背景 */
+  --card-bg: rgba(30, 30, 40, 0.8);
+}
+

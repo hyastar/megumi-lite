@@ -1,0 +1,404 @@
+// Memory 风格全局样式
+// 核心：固定视差背景 + 全局模糊效果
+
+@font-face {
+  font-family: 'LXGW WenKai Screen';
+  src: url('/fonts/LXGWWenKaiScreen.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LXGW WenKai Mono Screen';
+  src: url('/fonts/LXGWWenKaiMonoScreen.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LXGW WenKai GB Screen';
+  src: url('/fonts/LXGWWenKaiGBScreen.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LXGW WenKai Mono GB Screen';
+  src: url('/fonts/LXGWWenKaiMonoGBScreen.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family:
+    'LXGW WenKai Screen',
+    'LXGW WenKai GB Screen',
+    'LXGW WenKai Mono Screen',
+    'LXGW WenKai Mono GB Screen',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 0px;
+  height: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom right, #4d7fff 0%, #1a56ff 100%);
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 确保点击目录跳转时，标题不会被顶部的 Header 遮住 */
+  scroll-padding-top: 100px;
+}
+
+body,
+#__nuxt,
+.app-root {
+  // === 核心：固定背景 + 全局模糊 ===
+  // 注意：body 的背景图已在 main.scss 中设置为 /Shiki-Ryougi.png
+  // 这里保持透明，让 body 的背景图显示
+  background: transparent;
+  background-color: transparent; /* 确保不遮挡 body 的背景图 */
+
+  // 🔑 关键修复：移除 backdrop-filter，避免影响 fixed 定位
+  // backdrop-filter 会创建新的包含块，导致子元素的 position: fixed 失效
+  // 改为使用 ::before 伪元素实现模糊效果
+  // backdrop-filter: blur(5px);
+  // -webkit-backdrop-filter: blur(5px);
+
+  min-height: 100vh;
+  transition: background 0.5s ease;
+  position: relative; // 为伪元素定位做准备
+
+  // === 字体优化 ===
+  font-family:
+    'LXGW WenKai Screen',
+    'LXGW WenKai GB Screen',
+    'LXGW WenKai Mono Screen',
+    'LXGW WenKai Mono GB Screen',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--font-title-color);
+  line-height: 1.6;
+}
+
+// ✅ 使用伪元素实现模糊效果，不影响 fixed 定位
+// 注意：如果不需要全局模糊效果，可以注释掉下面的代码
+// body::before,
+// #__nuxt::before,
+// .app-root::before {
+//   content: '';
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   backdrop-filter: blur(5px);
+//   -webkit-backdrop-filter: blur(5px);
+//   pointer-events: none; // 不拦截鼠标事件
+//   z-index: -1; // 确保在所有内容下方
+// }
+
+// === 链接样式 ===
+a {
+  color: var(--font-link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// === 滚动条样式 (Memory 风格 - 极简) ===
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+// === 选择文本样式 ===
+::selection {
+  background: rgba(86, 156, 250, 0.3);
+  color: var(--font-title-color);
+}
+
+// 🎨 确保主题切换有平滑过渡
+body,
+.app-root,
+.main-content {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+// === 全局页面过渡动画 ===
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform, filter;
+}
+
+.page-enter-from {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(-10px);
+}
+
+// 🌙 暗色模式下的特殊调整
+[data-theme='dark'] body,
+[data-theme='dark'] #__nuxt,
+[data-theme='dark'] .app-root {
+  // 保持透明，让 body 的背景图显示
+  background: transparent;
+  background-color: transparent;
+}
+
+// 🌙 暗色模式下的卡片样式
+[data-theme='dark'] .article-card,
+[data-theme='dark'] .category-tabs,
+[data-theme='dark'] .article-container {
+  background: var(--pic-background-cover);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+// 🌙 暗色模式下的输入框
+[data-theme='dark'] input[type='text'],
+[data-theme='dark'] input[type='search'] {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--font-title-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] input[type='text']::placeholder,
+[data-theme='dark'] input[type='search']::placeholder {
+  color: var(--font-p-color);
+  opacity: 0.6;
+}
+
+// 🌙 暗色模式下的按钮和标签
+[data-theme='dark'] .tab-item {
+  color: var(--font-p-color);
+}
+
+[data-theme='dark'] .tab-item:hover {
+  background: rgba(86, 156, 250, 0.15);
+}
+
+[data-theme='dark'] .tab-item.active {
+  background: var(--theme-gradient);
+  color: white;
+}
+
+// 🌙 暗色模式下的代码块
+[data-theme='dark'] pre {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme='dark'] code {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e8e8e8;
+}
+
+// 🌙 暗色模式下的引用块
+[data-theme='dark'] blockquote {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: var(--font-link-color);
+}
+
+// 🌙 暗色模式下的链接
+[data-theme='dark'] a {
+  color: var(--font-link-color);
+}
+
+[data-theme='dark'] a:hover {
+  color: #8bb8ff;
+}
+
+// 🌙 暗色模式下的滚动条
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4d7fff 0%, #1a56ff 100%);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+// 🌙 暗色模式下的选中文本
+[data-theme='dark'] ::selection {
+  background: rgba(86, 156, 250, 0.4);
+  color: var(--font-title-color);
+}
+
+// 🌙 暗色模式下的表格
+[data-theme='dark'] table {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] th,
+[data-theme='dark'] td {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+// 🌙 暗色模式下的目录（TOC）
+[data-theme='dark'] .toc-glass-card {
+  background: rgba(30, 30, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .toc-header {
+  color: var(--font-title-color);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .toc-item a {
+  color: var(--font-p-color);
+}
+
+[data-theme='dark'] .toc-item a:hover {
+  background: rgba(86, 156, 250, 0.15);
+  color: var(--font-link-color);
+}
+
+[data-theme='dark'] .toc-item.active a {
+  background: linear-gradient(to right, rgba(86, 156, 250, 0.2), transparent);
+  color: var(--font-link-color);
+  border-left-color: var(--font-link-color);
+}
+
+// === KaTeX 数学公式样式微调 ===
+.katex {
+  font-family: KaTeX_Main, 'Times New Roman', serif !important;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+// === Shiki 代码高亮（双主题切换） ===
+.shiki,
+.shiki span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+  font-style: var(--shiki-light-font-style) !important;
+  font-weight: var(--shiki-light-font-weight) !important;
+  text-decoration: var(--shiki-light-text-decoration) !important;
+}
+
+[data-theme='dark'] .shiki,
+[data-theme='dark'] .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+pre.shiki {
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.code-copy-button {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border 0.2s ease;
+}
+
+.code-copy-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.code-copy-button.copied {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.5);
+  color: #a7f3d0;
+}
+
+.code-copy-button.error {
+  background: rgba(248, 113, 113, 0.2);
+  border-color: rgba(248, 113, 113, 0.5);
+  color: #fecaca;
+}

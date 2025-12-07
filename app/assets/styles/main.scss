@@ -1,0 +1,494 @@
+// Megumi-Lite 全局样式 - Butterfly 清新文静风格
+// 注意：CSS 变量定义已移至 variables.css，请确保在 nuxt.config.ts 中引入
+
+// ============================================
+// 字体定义
+// ============================================
+@font-face {
+  font-family: 'LXGW WenKai Screen';
+  src: url('/fonts/LXGWWenKaiScreen.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ============================================
+// Reset 样式
+// ============================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* 1. 确保 body 本身背景透明，内容正常显示 */
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  /* 2. 底层：背景图片 (固定不动) */
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* 最底层 */
+
+    /* 背景图设置移到这里 */
+    background-image: url('/Shiki-Ryougi.png');
+    background-attachment: fixed; /* 视差关键 */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* 3. 中层：黑色遮罩 (用于黑夜模式压暗) */
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 在背景图之上，在内容之下 */
+
+    background-color: #000;
+    opacity: var(--bg-overlay-opacity); /* 由 CSS 变量控制：白天0，夜间0.6 */
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* 确保不阻挡点击 */
+  }
+}
+
+// ============================================
+// 黑夜模式支持 (html.dark)
+// ============================================
+html.dark {
+  --body-bg: #0f0f1a;
+  --bg-color: #0f0f1a;
+  --card-bg: rgba(30, 30, 40, 0.9);
+  --text-color: #e8e8e8;
+  --text-secondary: #b0b0b0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --header-bg: rgba(20, 20, 30, 0.8);
+}
+
+// ============================================
+// 链接样式
+// ============================================
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+  
+  &:hover {
+    color: var(--primary-hover);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// 标题样式
+// ============================================
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+// ============================================
+// 段落和文本
+// ============================================
+p {
+  margin-bottom: var(--spacing-md);
+  word-wrap: break-word;
+}
+
+// ============================================
+// 列表样式
+// ============================================
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+// ============================================
+// 图片样式
+// ============================================
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ============================================
+// 按钮基础样式
+// ============================================
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: var(--transition);
+  
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// 输入框样式
+// ============================================
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: var(--transition);
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(73, 177, 245, 0.1);
+  }
+}
+
+// ============================================
+// 滚动条样式
+// ============================================
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+// ============================================
+// 选中文本样式
+// ============================================
+::selection {
+  background: rgba(73, 177, 245, 0.3);
+  color: var(--text-color);
+}
+
+// ============================================
+// 工具类
+// ============================================
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  transition: var(--transition);
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// ============================================
+// Markdown 排版样式
+// ============================================
+.markdown-body {
+  color: var(--text-color);
+  line-height: var(--line-height);
+  font-size: var(--font-size-base);
+
+  // 标题
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-color);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-light);
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  // 段落
+  p {
+    margin-bottom: var(--spacing-md);
+    word-wrap: break-word;
+  }
+
+  // 链接
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--primary-hover);
+      border-bottom-color: var(--primary-hover);
+    }
+  }
+
+  // 列表
+  ul, ol {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+  }
+
+  li {
+    margin-bottom: var(--spacing-xs);
+    line-height: var(--line-height);
+
+    p {
+      margin-bottom: var(--spacing-xs);
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  // 引用
+  blockquote {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 4px solid var(--primary-color);
+    background: rgba(73, 177, 245, 0.05);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+
+    p {
+      margin-bottom: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // 代码
+  code {
+    padding: 2px 6px;
+    background: rgba(73, 177, 245, 0.1);
+    border-radius: var(--radius-sm);
+    font-family: 'LXGW WenKai Mono Screen', 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.9em;
+    color: var(--primary-color);
+  }
+
+  pre {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-lg);
+    background: #f8f9fa;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    border: 1px solid var(--border-light);
+
+    code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+  }
+
+  // 表格
+  table {
+    width: 100%;
+    margin: var(--spacing-md) 0;
+    border-collapse: collapse;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-light);
+    text-align: left;
+  }
+
+  th {
+    background: rgba(73, 177, 245, 0.05);
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  // 图片
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  // 水平线
+  hr {
+    margin: var(--spacing-xl) 0;
+    border: none;
+    border-top: 1px solid var(--border-light);
+  }
+
+  // 强调
+  strong {
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  // 删除线
+  del {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+  }
+
+  // 任务列表
+  .task-list-item {
+    list-style-type: none;
+    padding-left: 0;
+
+    input[type="checkbox"] {
+      margin-right: var(--spacing-sm);
+    }
+  }
+}
+
+// Shiki 代码高亮样式（适配白底）
+pre.shiki {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  line-height: 1.6;
+  font-family: 'LXGW WenKai Mono Screen', 'JetBrains Mono', 'Fira Code', monospace;
+  border: 1px solid var(--border-light);
+  background: #f8f9fa !important;
+}
+
+// ============================================
+// 页面过渡动画 (Page Transition)
+// ============================================
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
