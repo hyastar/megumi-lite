@@ -129,4 +129,4 @@ NUXT_PUBLIC_UMAMI_HOST=https://analytics.yourdomain.com
 
 ## 📄 License
 
-[MIT](https://www.google.com/search?q=./LICENSE) License © 2025 [hyastar](https://github.com/hyastar)
+[MIT](https://en.wikipedia.org/wiki/MIT_License) License © 2025 [hyastar](https://github.com/hyastar)
